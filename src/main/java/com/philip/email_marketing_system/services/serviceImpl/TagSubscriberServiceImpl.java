@@ -11,6 +11,8 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
+
 @Service
 @AllArgsConstructor
 public class TagSubscriberServiceImpl implements TagSubscribersService {
@@ -28,23 +30,20 @@ public class TagSubscriberServiceImpl implements TagSubscribersService {
     }
 
     private TagSubscribers buildTagSubscriber(AddTagSubscriberRequest addTagSubscriberRequest) {
-        return TagSubscribers.bui
-    }
-
-    private TagSubscribers buildTagSubscriber(Alder()
+        return TagSubscribers.builder()
                 .subscriberId(addTagSubscriberRequest.getSubscriberId())
                 .tagId(addTagSubscriberRequest.getTagId())
                 .build();
     }
 
     @Override
-    public List<TagSubscriber> getAllTagSubscribers() {
-        return tagSubscriberRepository.findAll();
+    public List<TagSubscribers> getAllTagSubscribers() {
+        return tagSubscribersRepository.findAll();
     }
 
     @Override
-    public TagSubscriber findById(String id) throws TagException {
-        Optional<TagSubscriber> foundTagSubscriber = tagSubscriberRepository.findById(Long.valueOf(id));
+    public TagSubscribers findById(String id) throws TagException {
+        Optional<TagSubscribers> foundTagSubscriber = tagSubscribersRepository.findById(Long.valueOf(id));
         if (foundTagSubscriber.isEmpty()) {
             throw new TagException("Tag Subscriber with Id " + id + " does not exist", 404);
         }
@@ -53,11 +52,11 @@ public class TagSubscriberServiceImpl implements TagSubscribersService {
 
     @Override
     public DeleteTagSubscriberResponse deleteTagSubscriberById(String id) throws TagException {
-        Optional<TagSubscriber> foundTagSubscriber = tagSubscriberRepository.findById(Long.valueOf(id));
+        Optional<TagSubscribers> foundTagSubscriber = tagSubscribersRepository.findById(Long.valueOf(id));
         if (foundTagSubscriber.isEmpty()) {
             throw new TagException("Tag Subscriber with Id " + id + " does not exist", 404);
         }
-        tagSubscriberRepository.deleteById(Long.valueOf(id));
+        tagSubscribersRepository.deleteById(Long.valueOf(id));
         return new DeleteTagSubscriberResponse(true);
     }
 }
