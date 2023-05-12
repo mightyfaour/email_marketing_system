@@ -9,8 +9,9 @@ import com.philip.email_marketing_system.data.model.subscribersObjet.Subscribers
 import java.util.List;
 
 public class MailgunMailService implements EmailService {
+
     @Override
-    public void sendEmail(Campaign campaign, List<Subscribers> subscribers) {
-        // Implement Mailgun Mail Service
+    public void sendEmail(String recipient, String subject, String body) {
+
     }
 }

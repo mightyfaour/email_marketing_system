@@ -2,7 +2,7 @@ package com.philip.email_marketing_system.services;
 
 
 
-public class EmailServiceFactory {
+public class EmailServiceFactoryimpl {
     public EmailService getEmailService(String emailServiceName) {
         switch (emailServiceName) {
             case "AWS":

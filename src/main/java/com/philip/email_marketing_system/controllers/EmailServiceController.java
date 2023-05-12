@@ -1,5 +1,6 @@
 package com.philip.email_marketing_system.controllers;
 
+import com.philip.email_marketing_system.data.Email;
 import com.philip.email_marketing_system.services.EmailService;
 import com.philip.email_marketing_system.services.EmailServiceFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/email-service")
-public class EmailServiceController {
+public class EmailServiceController<EmailServiceException extends Throwable> {
 
     @Autowired
     private EmailServiceFactory emailServiceFactory;

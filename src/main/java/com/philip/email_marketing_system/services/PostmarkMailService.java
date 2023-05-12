@@ -9,8 +9,9 @@ import com.philip.email_marketing_system.data.model.subscribersObjet.Subscribers
 import java.util.List;
 
 public class PostmarkMailService implements EmailService {
+
     @Override
-    public void sendEmail(Campaign campaign, List<Subscribers> subscribers) {
-        // Implement Postmark Mail Service
+    public void sendEmail(String recipient, String subject, String body) {
+
     }
 }

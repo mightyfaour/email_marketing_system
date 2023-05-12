@@ -8,8 +8,9 @@ import com.philip.email_marketing_system.data.model.subscribersObjet.Subscribers
 import java.util.List;
 
 public class SendGridMailService implements EmailService {
+
     @Override
-    public void sendEmail(Campaign campaign, List<Subscribers> subscribers) {
-        // Implement SendGrid Mail Service
+    public void sendEmail(String recipient, String subject, String body) {
+
     }
 }
